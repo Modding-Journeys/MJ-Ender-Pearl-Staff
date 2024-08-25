@@ -2,8 +2,6 @@ package com.modding_journeys.ender_pearl_staff.core.item.custom;
 
 import com.modding_journeys.ender_pearl_staff.Constants;
 import com.modding_journeys.ender_pearl_staff.core.client.screen.custom.EnderPearlStaffMenuForge;
-import io.netty.buffer.ByteBuf;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
@@ -14,7 +12,6 @@ import net.minecraft.world.inventory.MenuConstructor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.apache.logging.log4j.core.jmx.Server;
 import org.jetbrains.annotations.NotNull;
 
 public final class EnderPearlStaffItemForge extends Item {
@@ -23,7 +20,7 @@ public final class EnderPearlStaffItemForge extends Item {
         super(new Properties().stacksTo(1).fireResistant());
     }
 
-    @Override // called when clicked in the air
+    @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand interactionHand) {
 
         if (level.isClientSide()) {
