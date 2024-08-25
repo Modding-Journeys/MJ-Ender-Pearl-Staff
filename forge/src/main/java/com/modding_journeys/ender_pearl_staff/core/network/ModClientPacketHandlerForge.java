@@ -10,6 +10,6 @@ public class ModClientPacketHandlerForge {
 
     public static void handlePacket(OpenEnderPearlStaffMenuC2SPacket msg, Supplier<NetworkEvent.Context> ctx) {
 
-        Constants.LOG.info("attempted to handle ender pearl staff packet on the client properly?! {}", msg.ATTACHED);
+        Constants.debug("attempted to handle ender pearl staff packet on the client properly?! " + msg.ATTACHED);
     }
 }

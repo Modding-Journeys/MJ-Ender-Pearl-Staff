@@ -43,7 +43,7 @@ public class EnderPearlStaffMenuForge extends AbstractContainerMenu {
         });
 
         // todo: remove debugging logs lol
-        uuidList.forEach(uuid -> Constants.LOG.info("Found skeleton with UUID: {}", uuid.toString()));
+        uuidList.forEach(uuid -> Constants.debug("Found skeleton with UUID: " + uuid.toString()));
         uuidList.forEach(uuid -> player.sendSystemMessage(Component.literal("Found skeleton with UUID: " + uuid.toString())));
     }
 

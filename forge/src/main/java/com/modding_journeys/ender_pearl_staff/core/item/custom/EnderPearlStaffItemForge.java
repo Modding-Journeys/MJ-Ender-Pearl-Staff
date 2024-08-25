@@ -31,7 +31,7 @@ public final class EnderPearlStaffItemForge extends Item {
             return super.use(level, player, interactionHand);
         }
 
-        Constants.LOG.info("{} attempted to use an Ender Pearl Staff!", player.getScoreboardName());
+        Constants.debug(player.getScoreboardName() + "attempted to use an Ender Pearl Staff!");
 
         EnderPearlStaffItemForge.useWithoutContext((ServerLevel) level, player);
 
@@ -42,11 +42,11 @@ public final class EnderPearlStaffItemForge extends Item {
 
 //        OpenEnderPearlStaffMenuC2SPacket packet = new OpenEnderPearlStaffMenuC2SPacket();
 
-        Constants.LOG.info("Sent a packet to the server!");
+        Constants.debug("Sent a packet to the server!");
 //        ModNetworkForge.INSTANCE.sendToServer(new OpenEnderPearlStaffMenuC2SPacket());
         ModNetworkForge.INSTANCE.sendToServer(new OpenEnderPearlStaffMenuC2SPacket(level, player));
 
-        Constants.LOG.info("Sent a packet to the player!");
+        Constants.debug("Sent a packet to the player!");
 //        ModNetworkForge.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new OpenEnderPearlStaffMenuC2SPacket());
         ModNetworkForge.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new OpenEnderPearlStaffMenuC2SPacket(level, player));
 

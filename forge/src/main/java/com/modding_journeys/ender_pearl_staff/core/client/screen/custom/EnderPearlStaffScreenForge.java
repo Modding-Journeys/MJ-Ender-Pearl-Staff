@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -47,11 +48,15 @@ public class EnderPearlStaffScreenForge extends AbstractContainerScreen<EnderPea
 
         if (this.menu.uuidList.isEmpty()) {
 
-            // Constants.LOG.info("Failed to render UUIDs because the list is empty!");
+            // Constants.debug("Failed to render UUIDs because the list is empty!");
 
             pGuiGraphics.drawString(Minecraft.getInstance().font, "X", x+5, y+5, 0xFFFF0000);
 
             // todo: fix this lol
+
+            for (int i = 0; i < 50; i++) {
+                this.menu.uuidList.add(UUID.randomUUID());
+            }
 
             return;
         }

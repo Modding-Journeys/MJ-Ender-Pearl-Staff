@@ -28,33 +28,31 @@ public class OpenEnderPearlStaffMenuC2SPacket {
     // - The fourth parameter is a Function<FriendlyByteBuf, MSG> responsible for decoding the message from the provided FriendlyByteBuf.
     // - The final parameter is a BiConsumer<MSG, Supplier<NetworkEvent.Context>> responsible for handling the message itself.
 
-    public String ATTACHED = "WE WERE ABLE TO PRINT AN ATTACHED STRING INSTANCE";
+    public String ATTACHED = "this string is attached to an instance of OpenEnderPearlStaffMenuC2SPacket";
 
     public OpenEnderPearlStaffMenuC2SPacket(@Nullable ServerLevel level, @Nullable Player player) {
     }
 
     public void encode(FriendlyByteBuf friendlyByteBuf) {
-
-
-
-        Constants.LOG.info("attempted to encode ender pearl staff packet {}!", this.ATTACHED);
+        
+        Constants.debug("attempted to encode ender pearl staff packet! " + this.ATTACHED);
     }
 
     public static OpenEnderPearlStaffMenuC2SPacket decode(FriendlyByteBuf friendlyByteBuf) {
 
         OpenEnderPearlStaffMenuC2SPacket returned = new OpenEnderPearlStaffMenuC2SPacket(null, null);
 
-        Constants.LOG.info("attempted to decode ender pearl staff packet! {}", returned.ATTACHED);
+        Constants.debug("attempted to decode ender pearl staff packet! " + returned.ATTACHED);
         return returned;
     }
 
     public void handle(Supplier<NetworkEvent.Context> contextSupplier) {
 
-        Constants.LOG.info("attempted to handle ender pearl staff packet! {}", this.ATTACHED);
+        Constants.debug("attempted to handle ender pearl staff packet! " + this.ATTACHED);
 
         if (contextSupplier.get().getDirection() == NetworkDirection.PLAY_TO_CLIENT) {
 
-            Constants.LOG.info("attempted to handle ender pearl staff packet on the client! {}", this.ATTACHED);
+            Constants.debug("attempted to handle ender pearl staff packet on the client! " + this.ATTACHED);
 
             contextSupplier.get().enqueueWork(() ->
                     // Make sure it's only executed on the physical client
@@ -63,7 +61,7 @@ public class OpenEnderPearlStaffMenuC2SPacket {
             contextSupplier.get().setPacketHandled(true);
         } else {
 
-            Constants.LOG.info("attempted to handle ender pearl staff packet on the server! {}", this.ATTACHED);
+            Constants.debug("attempted to handle ender pearl staff packet on the server! " + this.ATTACHED);
         }
     }
 
