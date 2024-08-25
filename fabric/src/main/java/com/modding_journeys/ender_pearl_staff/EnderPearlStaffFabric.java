@@ -1,6 +1,5 @@
-package com.modding_journeys.examplemod;
+package com.modding_journeys.ender_pearl_staff;
 
-import com.modding_journeys.ender_pearl_staff.EnderPearlStaff;
 import net.fabricmc.api.ModInitializer;
 
 public class EnderPearlStaffFabric implements ModInitializer {

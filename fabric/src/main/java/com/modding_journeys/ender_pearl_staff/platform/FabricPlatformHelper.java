@@ -1,4 +1,4 @@
-package com.modding_journeys.examplemod.platform;
+package com.modding_journeys.ender_pearl_staff.platform;
 
 import com.modding_journeys.ender_pearl_staff.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;

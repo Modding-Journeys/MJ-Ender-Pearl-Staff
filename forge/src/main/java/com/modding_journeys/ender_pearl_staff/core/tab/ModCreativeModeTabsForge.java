@@ -12,9 +12,9 @@ public class ModCreativeModeTabsForge {
 
     public static void register() {}
 
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_MOD_TAB = ModRegistryForge.registerCreativeModeTab("example_mod_tab", () -> CreativeModeTab.builder()
+    public static final RegistryObject<CreativeModeTab> ENDER_PEARL_STAFF_TAB = ModRegistryForge.registerCreativeModeTab("ender_pearl_staff_tab", () -> CreativeModeTab.builder()
             .icon(() -> new ItemStack(Items.STICK))
-            .title(Component.translatable("itemGroup.exampleMod"))
+            .title(Component.translatable("itemGroup.enderPearlStaff"))
             .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
             .displayItems(((pParameters, pOutput) -> {
                 pOutput.accept(Items.STICK);

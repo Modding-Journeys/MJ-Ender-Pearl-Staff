@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.modding_journeys.examplemod.EnderPearlStaffFabric"
+            "com.modding_journeys.ender_pearl_staff.EnderPearlStaffFabric"
         ]
     },
     "mixins": [
