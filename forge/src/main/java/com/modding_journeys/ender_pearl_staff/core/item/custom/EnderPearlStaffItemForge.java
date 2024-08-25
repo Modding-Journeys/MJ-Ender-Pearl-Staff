@@ -1,36 +1,49 @@
 package com.modding_journeys.ender_pearl_staff.core.item.custom;
 
 import com.modding_journeys.ender_pearl_staff.Constants;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
+import com.modding_journeys.ender_pearl_staff.core.client.screen.custom.EnderPearlStaffMenuForge;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuConstructor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.BlockHitResult;
+import org.apache.logging.log4j.core.jmx.Server;
+import org.jetbrains.annotations.NotNull;
 
-public class EnderPearlStaffItemForge extends Item {
+public final class EnderPearlStaffItemForge extends Item {
 
     public EnderPearlStaffItemForge() {
         super(new Properties().stacksTo(1).fireResistant());
     }
 
-    @Override
-    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+    @Override // called when clicked in the air
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand interactionHand) {
 
-        Level level = context.getLevel();
-        Player player = context.getPlayer();
-        InteractionHand hand = context.getHand();
-        ItemStack itemStack = context.getItemInHand();
-
-        if (level.isClientSide() || player == null) {
-            return InteractionResult.PASS;
+        if (level.isClientSide()) {
+            return super.use(level, player, interactionHand);
         }
 
-        Constants.LOG.info("Player attempted to open GUI!");
+        Constants.LOG.info("{} attempted to use an Ender Pearl Staff!", player.getScoreboardName());
 
-        return InteractionResult.PASS;
+        EnderPearlStaffItemForge.useWithoutContext((ServerLevel) level, player);
+
+        return super.use(level, player, interactionHand);
+    }
+
+    private static void useWithoutContext(ServerLevel level, Player player) {
+
+        player.openMenu(new SimpleMenuProvider(new MenuConstructor() {
+            @Override
+            public @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
+                return new EnderPearlStaffMenuForge(level, player, 0, pPlayerInventory, null);
+            }
+        }, Component.translatable("menu.ender_pearl_staff.ender_pearl_staff")));
     }
 }
