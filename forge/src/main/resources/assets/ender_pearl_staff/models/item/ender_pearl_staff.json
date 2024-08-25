@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ender_pearl_staff:item/ender_pearl_staff"
+  }
+}
