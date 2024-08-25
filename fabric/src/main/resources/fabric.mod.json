@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "examplemod",
+    "id": "ender_pearl_staff",
     "version": "${version}",
     "name": "${mod_name}",
     "description": "${description}",
@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.modding_journeys.examplemod.ExampleModFabric"
+            "com.modding_journeys.examplemod.EnderPearlStaffFabric"
         ]
     },
     "mixins": [
