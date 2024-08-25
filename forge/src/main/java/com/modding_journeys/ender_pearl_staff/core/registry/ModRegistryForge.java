@@ -3,6 +3,7 @@ package com.modding_journeys.ender_pearl_staff.core.registry;
 import com.modding_journeys.ender_pearl_staff.Constants;
 import com.modding_journeys.ender_pearl_staff.core.client.screen.ModMenuTypesForge;
 import com.modding_journeys.ender_pearl_staff.core.item.ModItemsForge;
+import com.modding_journeys.ender_pearl_staff.core.network.ModNetworkForge;
 import com.modding_journeys.ender_pearl_staff.core.tab.ModCreativeModeTabsForge;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -32,6 +33,8 @@ public class ModRegistryForge {
         ModItemsForge.register();
         ModCreativeModeTabsForge.register();
         ModMenuTypesForge.register();
+
+        ModNetworkForge.register();
 
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
